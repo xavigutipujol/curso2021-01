@@ -10,3 +10,4 @@ Revisar también si el nombre y apellidos son correctos.
 | Carlos | Reyes Guerola | Carlos Reyes Guerola | Reyes4711 | SI | SI |
 | Angel | Moya Pardo | angelmoya | angelmoya | SI | SI |
 | Fernando | Plaza | ferplaza | fermatrix | SI | SI
+| Carlos | Del Valle | Carlos del Valle | CarlosFactor | SI |SI
