@@ -9,4 +9,4 @@ Revisar también si el nombre y apellidos son correctos.
 | Nombre | Apellidos | Discord | Github | Instalación (SI/NO) | Git (SI/NO) |
 | -- | -- | -- | -- | -- | -- |
 | Fernando | Plaza | ferplaza | fermatrix | SI | SI
-
+| Carlos | Reyes Guerola | Carlos Reyes Guerola | Reyes4711 | SI | SI |
