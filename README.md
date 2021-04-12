@@ -11,3 +11,4 @@ Revisar también si el nombre y apellidos son correctos.
 | Angel | Moya Pardo | angelmoya | angelmoya | SI | SI |
 | Fernando | Plaza | ferplaza | fermatrix | SI | SI |
 | Christian | Santamaría Cameselle | christian_ | ChristianSantamaría | SI | SI |
+| Jorge | Ordóñez Vázquez | jorge.ordonez | jorgeorvaz | SI | SI |
