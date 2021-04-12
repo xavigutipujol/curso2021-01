@@ -8,5 +8,5 @@ Revisar también si el nombre y apellidos son correctos.
 
 | Nombre | Apellidos | Discord | Github | Instalación (SI/NO) | Git (SI/NO) |
 | -- | -- | -- | -- | -- | -- |
-
+| Christian | Santamaría Cameselle | christian_ | ChristianSantamaría | SI | SI |
 
