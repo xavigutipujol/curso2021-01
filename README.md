@@ -11,6 +11,7 @@ Revisar también si el nombre y apellidos son correctos.
 | Ferran | Mora Espi | ferrans73 | ferran-73 | SI | SI |
 | Carlos | Reyes Guerola | Carlos Reyes Guerola | Reyes4711 | SI | SI |
 | Angel | Moya Pardo | angelmoya | angelmoya | SI | SI |
+| Marc | Ponce Plaza | MarcPoncePlaza#3676 | marcpp | SI | SI |
 | David | Borromeo Tarres | David Borromeo | DavidBForgeFlow | SI | SI |
 | Javier | Sanchez Cadenas |JAvier Sanchez CAdenas | JSanchezCAD | SI | SI
 | Laia | Espinosa Rafols | Laia Espinosa Rafols | laiaespinosa | SI | SI |
