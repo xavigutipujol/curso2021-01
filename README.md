@@ -21,4 +21,5 @@ Revisar también si el nombre y apellidos son correctos.
 | Fernando | Plaza | ferplaza | fermatrix | SI | SI |
 | Christian | Santamaría Cameselle | christian_ | ChristianSantamaría | SI | SI |
 | Jorge | Ordóñez Vázquez | jorge.ordonez | jorgeorvaz | SI | SI |
+| Gregorio | Cobacho Navarro | gcobacho | gcobacho | SI | SI |
 | Félix | Rojo Trueba |redmancete | redmancete | SI | SI |
