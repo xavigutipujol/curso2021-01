@@ -11,6 +11,7 @@ Revisar también si el nombre y apellidos son correctos.
 | Ferran | Mora Espi | ferrans73 | ferran-73 | SI | SI |
 | Carlos | Reyes Guerola | Carlos Reyes Guerola | Reyes4711 | SI | SI |
 | Angel | Moya Pardo | angelmoya | angelmoya | SI | SI |
+| Xavier | Gutierrez | jgutierrez | xavigutipujol | SI | SI |
 | Alicia | Garzo Moreno | aliciagarzo | aliciagaarzo | SI | SI |
 | Fernando | Hernandez Conesa | Fernando Hernandez | elPansi | SI | SI |
 | Marc | Ponce Plaza | MarcPoncePlaza#3676 | marcpp | SI | SI |
