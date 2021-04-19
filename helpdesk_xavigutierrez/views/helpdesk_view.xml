@@ -21,11 +21,13 @@
                     <field name="state" widget="statusbar" />
                 </header>
                 <sheet>
+                <!--con esto ponemos el titulo de la ficha creada-->
                 <div class="oe_title">
                     <h1>
                         <field name="name" />
                     </h1>
                 </div>
+
                 <group>
                     <group>
                         <field name="date"/>
