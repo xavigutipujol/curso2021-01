@@ -12,14 +12,22 @@
         </field>
     </record>
 
+
     <record id="view_helpdesk_ticket_form" model="ir.ui.view">
         <field name="name">view_helpdesk_ticket_form</field>
         <field name="model">helpdesk.ticket</field>
         <field name="arch" type="xml">
+        
             <form string="Ticket">
+            
                 <header>
+                    <button string="Asignar" name="asignar" type="object" states="nuevo" />
+                    <button string="En proceso" name="proceso" type="object" states="asignado" />
+                    <button string="Finalizar" name="finalizado" type="object" states="nuevo,asigando,pendiente,proceso" />
                     <field name="state" widget="statusbar" />
                 </header>
+            
+            
                 <sheet>
                 <!--con esto ponemos el titulo de la ficha creada-->
                 <div class="oe_title">
@@ -51,5 +59,6 @@
             </form>
         </field>
     </record>
+    
 
 </odoo>

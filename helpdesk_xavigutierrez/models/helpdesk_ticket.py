@@ -15,7 +15,7 @@ class HelpdeskTicket(models.Model):
         string='Date')
 
     state = fields.Selection(
-        [('nuevo', 'Nuevo'),
+        [('nuevo', 'Nuevoo'),
          ('asignado', 'Asignado'),
          ('proceso', 'En Proceso'),
          ('pendiente', 'Pendiente'),
@@ -36,3 +36,32 @@ class HelpdeskTicket(models.Model):
     action_preventive = fields.Html(
         string = 'Preventive Action',
         help = 'Description Preventive Action to do')
+
+    #Añadir en el header los siguiente botones:
+
+    #- Asignar, cambia estado a asignado y pone a true el campo asignado, visible sólo con estado = nuevo
+    def asignar(self):
+        self.ensure_one()
+        self.write({
+           'state': 'asignado',
+           'assigned': True})
+        
+
+    #- En proceso, visible sólo con estado = asignado
+
+    def proceso(self):
+        self.ensure_one()
+        self.state = 'proceso'
+    #- Pendiente, visible sólo con estado = en proceso o asignado
+    def pendiente(self):
+        self.ensure_one()
+        self.state = 'pendiente'
+    #- Finalizar, visible en cualquier estado, menos cancelado y finalizado
+    def finalizado(self):
+        self.ensure_one()
+        self.state = 'resuelto'
+    #- Cancelar, visible si no está cancelado
+    def cancelado(self):
+        self.ensure_one()
+        self.state = 'cancelado'
+    #Cada botón pondrá el objeto en el estado correspondiente.
