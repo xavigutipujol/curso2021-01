@@ -1,4 +1,30 @@
-from odoo import models, fields
+import logging
+
+from odoo import models, fields, api
+
+_logger = logging.getLogger(__name__)
+
+class HelpdeskTicketAction(models.Model):
+    _name = 'helpdesk.ticket.action'
+    _description = 'Action'
+
+    name = fields.Char()
+    date = fields.Date()
+    ticket_id = fields.Many2one(
+        comodel_name = 'helpdesk.ticket',
+        string = 'Ticket')
+
+class HelpdeskTicketTag(models.Model):
+    _name = 'helpdesk.ticket.tag'
+    _description = 'Tag'
+
+    name = fields.Char()
+    ticket_ids = fields.Many2many(
+        comodel_name = 'helpdesk.ticket',
+        relation = 'helpdesk_ticket_tag_rel',
+        column1 = 'tag_id',
+        column2 = 'ticked_id',
+        string = 'Tickets')
 
 class HelpdeskTicket(models.Model):
     _name = 'helpdesk.ticket'
@@ -27,7 +53,7 @@ class HelpdeskTicket(models.Model):
         string = 'Time')
     assigned = fields.Boolean(
         string = 'Assigned',
-        readonly = True)
+        compute = '_compute_assigned')
     date_limit = fields.Date(
         string = 'Date Limit')
     action_corrective = fields.Html(
@@ -36,6 +62,22 @@ class HelpdeskTicket(models.Model):
     action_preventive = fields.Html(
         string = 'Preventive Action',
         help = 'Description Preventive Action to do')
+
+    user_id = fields.Many2one(
+        comodel_name='res.users',
+        string='Assigned to')
+
+    tag_ids = fields.Many2many(
+        comodel_name = 'helpdesk.ticket.tag',
+        relation = 'helpdesk_ticket_tag_rel',
+        column1 = 'ticked_id',
+        column2 = 'tag_id',
+        string = 'Tags')
+
+    actions_ids = fields.One2many(
+        comodel_name = 'helpdesk.ticket.action',
+        inverse_name = 'ticket_id',
+        string = 'Actions')
 
     #Añadir en el header los siguiente botones:
 
@@ -65,3 +107,25 @@ class HelpdeskTicket(models.Model):
         self.ensure_one()
         self.state = 'cancelado'
     #Cada botón pondrá el objeto en el estado correspondiente.
+    @api.depends('user_id')
+    def _compute_assigned(self):
+        for record in self:
+            record.assigned = self.user_id and True or False
+
+    ticket_qty = fields.Integer(
+        string='Ticket Qty',
+        compute='_compute_ticket_qty')
+
+    @api.depends('user_id')
+    def _compute_ticket_qty(self):
+        for record in self:
+            other_tickets = self.env['helpdesk.ticket'].search([('user_id', '=', record.user_id.id)])
+            record.ticket_qty = len(other_tickets)
+    
+    tag_name = fields.Char(
+        string='Tag Name')
+
+    def create_tag(self):
+        self.write({
+            'tag_ids': [({'name': self.tag_name})]
+        })
