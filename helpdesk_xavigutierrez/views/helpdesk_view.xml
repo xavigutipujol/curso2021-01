@@ -60,7 +60,19 @@
                         <field name="tag_ids"/>
                     </page>
                     <page string="Actions">
-                        <field name="actions_ids"/>
+                        <field name="actions_ids" context="{'default_date':date}">
+                            <tree editable="bottom">
+                                <field name="name"/>
+                                <field name="date"/>
+                                <field name="time"/>                                
+                            </tree>
+                            <form>
+                                <group name="action">
+                                    <field name="name"/>
+                                    <field name="date"/>
+                                </group>
+                            </form>
+                        </field>
                     </page>
                     <page string="Quality">
                         <field name="action_corrective"/>
