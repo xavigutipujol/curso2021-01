@@ -42,6 +42,10 @@ class HelpdeskTicketTag(models.Model):
 class HelpdeskTicket(models.Model):
     _name = 'helpdesk.ticket'
     _description = 'Ticket'
+    _inherit = ['mail.thread.cc',
+                'mail.thread.blacklist',
+                'mail.activity.mixin']
+    _primary_email = 'email_from'
 
     def _date_default_today(self):
         return fields.Date.today()
@@ -99,6 +103,13 @@ class HelpdeskTicket(models.Model):
         inverse_name='ticket_id',
         string='Actions')
 
+    partner_id = fields.Many2one(
+        comodel_name='res.partner',
+        string='Partner')
+
+    email_from = fields.Char(
+        string='Email from')
+
     @api.depends('actions_ids.time')
     def _get_time(self):
         for record in self:
@@ -148,6 +159,10 @@ class HelpdeskTicket(models.Model):
     def cancelado(self):
         self.ensure_one()
         self.state = 'cancelado'
+
+    def cancelado_multi(self):
+        for record in self:
+            record.cancelado()
     # Cada botón pondrá el objeto en el estado correspondiente.
 
     @api.depends('user_id')
